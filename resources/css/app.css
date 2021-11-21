@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&family=Sansita:wght@400;700;800&display=swap');
+
+
+
+@import "~tailwindcss/base.css";
+@import "~tailwindcss/components.css";
+@import "~tailwindcss/utilities.css";
+
+
+
+
+
+
+
+
+
+.blog-card {
+    @apply border border-gray-100 rounded-2xl overflow-hidden transition 
+    duration-200 hover:shadow-lg hover:border-transparent;
+}
+
+.post-title {
+
+    @apply font-bold text-pri font-title py-3 transition duration-200 hover:text-sec;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+
