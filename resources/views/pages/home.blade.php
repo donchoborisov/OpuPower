@@ -17,14 +17,14 @@
     
                     <!-- first row -->
                     <div class="col-span-1 md:col-span-2 lg:col-span-3">
-                        <a href="" class="border border-gray-100 block md:flex rounded-3xl overflow-hidden transition duration-300 hover:shadow-lg">
+                        <a href="{{ route('page.show',$networkmain->id)}}" class="border border-gray-100 block md:flex rounded-3xl overflow-hidden transition duration-300 hover:shadow-lg">
                             <div class="md:w-1/2">
-                               <img src="{{asset('/img/network.jpg')}}" alt="" class="">
+                               <img src="{{Voyager::image($networkmain->image)}}" alt="" class="">
                             </div>
                             <div class="md:w-1/2 p-4 md:p-7 my-8 ">
                                 <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
-                                <h2 class="font-bold text-pri text-xl md:text-2xl font-title py-3 transition duration-200 hover:text-sec ">We offer IT Network maintenance and support services to businesses.</h2>
-                                <p class="text-gen pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti facilis nostrum voluptates, alias obcaecati adipisci nobis perferendis distinctio, rem nihil saepe eos ab! Veritatis iste quibusdam perspiciatis, consequuntur deleniti obcaecati quae nam laborum atque, debitis, facere exercitationem maxime! Eos ab dolorem ducimus reprehenderit vero omnis sed dolorum vel quae suscipit.</p>
+                                <h2 class="font-bold text-pri text-xl md:text-2xl font-title py-3 transition duration-200 hover:text-sec ">{{$networkmain->title}}</h2>
+                                <p class="text-gen pb-5">{{$networkmain->excerpt}}</p>
                               
                            
                            
@@ -35,11 +35,11 @@
     
                     <!-- second row -->
                       <div class="blog-card ">
-                           <a href="#">
-                               <img src="{{asset('/img/itsupport.jpg')}}" alt="">
+                           <a href="{{ route('page.show',$itsupport->id)}}">
+                               <img src="{{Voyager::image($itsupport->image)}}" alt="">
                                <div class="px-4 pb-6">
-                                   <h2 class="post-title">IT Support</h2>
-                                   <p class="text-gen pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, amet quibusdam dolor natus esse suscipit molestiae asperiores voluptates quia atque.</p>
+                                   <h2 class="post-title">{{$itsupport->title}}</h2>
+                                   <p class="text-gen pb-5">{{ Str::words($itsupport->excerpt, 20, ' ...') }}</p>
                                     <div class="flex items-center">
                                
                                  <div class="pl-3">
@@ -53,11 +53,11 @@
                       </div>
     
                       <div class="blog-card ">
-                        <a href="#">
-                            <img src="{{asset('/img/installation.jpg')}}" alt="">
+                        <a href="{{ route('page.show',$networkinst->id)}}">
+                            <img src="{{Voyager::image($networkinst->image)}}" alt="">
                             <div class="px-4 pb-6">
-                                <h2 class="post-title">Network Installations</h2>
-                                <p class="text-gen pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, amet quibusdam dolor natus esse suscipit molestiae asperiores voluptates quia atque.</p>
+                                <h2 class="post-title">{{$networkinst->title}}</h2>
+                                <p class="text-gen pb-5">{{ Str::words($networkinst->excerpt, 20, ' ...') }}</p>
                                
                                 <div class="flex items-center">
                                
@@ -71,11 +71,11 @@
                    </div>
     
                    <div class="blog-card ">
-                    <a href="#">
-                        <img src="{{asset('/img/phone.jpg')}}" alt="">
+                    <a href="{{ route('page.show',$phone->id)}}">
+                        <img src="{{Voyager::image($phone->image)}}" alt="">
                         <div class="px-4 pb-6">
-                            <h2 class="post-title">Telephone Systems</h2>
-                            <p class="text-gen pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, amet quibusdam dolor natus esse suscipit molestiae asperiores voluptates quia atque.</p>
+                            <h2 class="post-title">{{$phone->title}}</h2>
+                            <p class="text-gen pb-5">{{ Str::words($phone->excerpt, 20, ' ...') }}</p>
                            
                             <div class="flex items-center">
                           
@@ -96,24 +96,25 @@
                     <!-- end row -->
                     <!-- third row -->
                     <div class="blog-card col-span-1 lg:col-span-2 mb-10">
-                        <a href="#">
-                            <img src="{{asset('/img/cloud2.jpg')}}" alt="" class="lg:h-72 w-full">
+                        <a href="{{ route('page.show',$cloud->id)}}">
+                            <img src="{{Voyager::image($cloud->image)}}" alt="" class="lg:h-72 w-full">
                             <div class="px-4 pb-6">
-                                <h2 class="post-title">Cloud Solutions</h2>
-                                <p class="text-gen pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, amet quibusdam dolor natus esse suscipit molestiae asperiores voluptates quia atque.</p>
+                                <h2 class="post-title">{{$cloud->title}}</h2>
+                                <p class="text-gen pb-5">{{ Str::words($cloud->excerpt, 20, ' ...') }}</p>
                                
                            
                              
                              </div>
+                             
                         </a>
                    </div>
     
                    <div class="blog-card mb-10 ">
-                    <a href="#">
-                        <img src="{{asset('/img/cctv.jpg')}}" alt="">
+                    <a href="{{ route('page.show',$cctv->id)}}">
+                        <img src="{{Voyager::image($cctv->image)}}" alt="">
                         <div class="px-4 pb-6">
-                            <h2 class="post-title">CCTV Solutions</h2>
-                            <p class="text-gen pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, amet quibusdam dolor natus esse suscipit molestiae asperiores voluptates quia atque.</p>
+                            <h2 class="post-title">{{$cctv->title}}</h2>
+                            <p class="text-gen pb-5">{{ Str::words($cctv->excerpt, 20, ' ...') }}</p>
                            
                             <div class="flex items-center">
                                 <div class="pl-3">

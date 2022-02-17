@@ -3,7 +3,7 @@
     <header class="container mx-auto max-w-7xl flex flex-wrap items-center p-6 justify-between">
         <div class="flex items-center text-sec hover:text-pri cursor-pointer transition">
            
-          <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span>
+         <a href="{{ route('home')}}"> <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span> </a>
         </div>
         <div class="md:hidden block">
               <button id="menu-open" class=" px-3 py-1 rounded bg-sec text-white hover:bg-purple-900 transition">
@@ -27,27 +27,22 @@
                   <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
                       <div class="px-4 py-3">
                         <span class="block text-sm">What we can do for you</span>
-                    
+
+                        @php
+                        $pages = DB::table('pages')->get();
+
+
+                        @endphp
+                        
                       </div>
                       <ul class="py-1" aria-labelledby="dropdown">
+
+                        @foreach ($pages as $page )
                         <li>
-                          <a href="{{route('page.support')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">IT Support</a>
-                        </li>
-                        <li>
-                          <a href="{{route('page.maintenance')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Network Maintance</a>
-                        </li>
-                        <li>
-                          <a href="{{route('page.install')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Network Installation</a>
-                        </li>
-                        <li>
-                          <a href="{{route('page.phone')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Telephone Systems</a>
-                        </li>
-                        <li>
-                          <a href="{{route('page.cloud')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Cloud Solutions</a>
-                        </li>
-                        <li>
-                          <a href="{{route('page.cctv')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">CCTV Installation</a>
-                        </li>
+                          <a href="{{route('page.show',$page->id)}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">{{$page->title}}</a>
+                        </li> 
+                        @endforeach
+                       
                       </ul>
                   </div>
                  </li>

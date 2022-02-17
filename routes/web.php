@@ -3,6 +3,7 @@
 use TCG\Voyager\Voyager;
 use TCG\Voyager\Models\Page;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContactController;
 
 /*
@@ -89,6 +90,8 @@ Route::get('contact',[ContactController::class,'contact']);
 Route::post('contact',[ContactController::class,'contactPost'])->name('contact.store');    
 
 
+//pages
+Route::get('page/{id}',[PagesController::class,'show'])->name('page.show');
 
 
 Route::group(['prefix' => 'fuzzy'], function () {
