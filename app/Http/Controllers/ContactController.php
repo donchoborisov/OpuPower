@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
     public function contactPost(Request $request) {
+
+       
+
+
+
         $this->validate($request,
         [
         'name'  => 'required|max:100',
         'email' => 'required|email',
         'message' => 'required|max:800',
+        'g-recaptcha-response' => 'required|captcha',
        ]);
 
     Contact::create($request->all());

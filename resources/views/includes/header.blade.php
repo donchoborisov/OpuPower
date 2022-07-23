@@ -1,9 +1,10 @@
    {{-- header --}}
    <div class="bg-white shadow-md">
     <header class="container mx-auto max-w-7xl flex flex-wrap items-center p-6 justify-between">
+  
         <div class="flex items-center text-sec hover:text-pri cursor-pointer transition">
-           
-         <a href="{{ route('home')}}"> <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span> </a>
+          <img class="w-10 mr-2" src="{{Voyager::image(setting('site.logo'))}} ">  
+         <a href="{{ route('home')}}">   <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span> </a>
         </div>
         <div class="md:hidden block">
               <button id="menu-open" class=" px-3 py-1 rounded bg-sec text-white hover:bg-purple-900 transition">
@@ -19,7 +20,7 @@
                    <a href="{{route('home')}}" class="text-pri hover:text-sec transition">Home</a>
                 </li>
                 <li class="block mb-3 md:my-0 md:inline-block items-center mr-4">
-                    <a href="#" class="text-pri hover:text-sec transition">About us</a>
+                    <a href="{{ route('page.about') }}" class="text-pri hover:text-sec transition">About us</a>
                  </li>
                  <li class="block mb-3 md:my-0 md:inline-block items-center mr-4 ">
                   <button class="md:animate-pulse text-sec bg-our-bg hover:bg-blue-200 rounded-lg  px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Our Services <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>

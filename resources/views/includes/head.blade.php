@@ -6,6 +6,10 @@
 
         <title>Opu Power</title>
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-
+        <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+        <script src="https://www.google.com/recaptcha/api.js"></script>   
+            
+                 
+        
       
     </head>
