@@ -20,7 +20,7 @@
                    <a href="{{route('home')}}" class="text-pri hover:text-sec transition">Home</a>
                 </li>
                 <li class="block mb-3 md:my-0 md:inline-block items-center mr-4">
-                    <a href="#" class="text-pri hover:text-sec transition">About us</a>
+                    <a href="{{ route('page.about') }}" class="text-pri hover:text-sec transition">About us</a>
                  </li>
                  <li class="block mb-3 md:my-0 md:inline-block items-center mr-4 ">
                   <button class="md:animate-pulse text-sec bg-our-bg hover:bg-blue-200 rounded-lg  px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Our Services <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
