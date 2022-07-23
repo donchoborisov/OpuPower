@@ -1,9 +1,10 @@
    {{-- header --}}
    <div class="bg-white shadow-md">
     <header class="container mx-auto max-w-7xl flex flex-wrap items-center p-6 justify-between">
+  
         <div class="flex items-center text-sec hover:text-pri cursor-pointer transition">
-           
-         <a href="{{ route('home')}}"> <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span> </a>
+          <img class="w-10 mr-2" src="{{Voyager::image(setting('site.logo'))}} ">  
+         <a href="{{ route('home')}}">   <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span> </a>
         </div>
         <div class="md:hidden block">
               <button id="menu-open" class=" px-3 py-1 rounded bg-sec text-white hover:bg-purple-900 transition">
