@@ -32,6 +32,7 @@ SITE_LOGO=img/365.png
 ADMIN_NAME=Admin
 ADMIN_EMAIL=admin@admin.com
 ADMIN_PASSWORD=password
+BUILD_ASSETS_ON_START=true
 ```
 
 3) Build and start containers:
@@ -62,6 +63,18 @@ Run tests on startup (default: true), and optionally halt on failure:
 
 ```bash
 RUN_TESTS_ON_START=true HALT_ON_TEST_FAIL=false ./docker/dev-up.sh
+```
+
+Auto-build assets on startup if the Vite manifest is missing:
+
+```bash
+BUILD_ASSETS_ON_START=true ./docker/dev-up.sh
+```
+
+Disable the auto-build (useful if you’re running Vite dev server):
+
+```bash
+BUILD_ASSETS_ON_START=false ./docker/dev-up.sh
 ```
 
 Run the core test suite manually:
