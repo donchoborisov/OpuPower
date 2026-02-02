@@ -100,6 +100,7 @@ docker compose -f docker/docker-compose.yml run --rm node npm run build
 ```
 
 Open `http://localhost:8080`. Filament admin is at `/admin` with the user from `ADMIN_EMAIL` / `ADMIN_PASSWORD`.
+Open `http://localhost:8080`. Filament admin is at `/admin` with the user from `ADMIN_EMAIL` / `ADMIN_PASSWORD`.
 
 If you hit permissions issues on `storage/` or `bootstrap/cache/`, run:
 

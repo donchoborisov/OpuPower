@@ -48,6 +48,7 @@ for arg in "$@"; do
 done
 
 docker compose -f "$COMPOSE_FILE" down --remove-orphans
+docker compose -f "$COMPOSE_FILE" down --remove-orphans
 docker compose -f "$COMPOSE_FILE" up -d --build
 
 echo "Waiting for database to be ready..."
@@ -75,6 +76,10 @@ fi
 
 if [ "$SKIP_MIGRATE" != "true" ]; then
   docker compose -f "$COMPOSE_FILE" exec -T app php artisan migrate --seed --force
+fi
+
+if [ "$SEED_PAGES_ON_START" = "true" ]; then
+  docker compose -f "$COMPOSE_FILE" exec -T app php artisan db:seed --class=PagesTableSeeder --force
 fi
 
 if [ "$SEED_PAGES_ON_START" = "true" ]; then
