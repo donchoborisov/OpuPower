@@ -115,3 +115,9 @@ docker compose -f docker/docker-compose.yml run --rm --service-ports node npm ru
 ```
 
 Vite will be available on `http://localhost:5173`.
+
+## Security scanning
+
+- CodeQL is enabled via GitHub Actions in `.github/workflows/codeql.yml`.
+- Secret scanning is covered by a CI-based Gitleaks scan in `.github/workflows/secret-scan.yml`.
+- If your GitHub plan supports native Secret Scanning / Push Protection, enable them in repo settings for additional coverage.
