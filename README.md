@@ -83,7 +83,7 @@ docker compose -f docker/docker-compose.yml exec app php artisan storage:link
 
 ```bash
 docker compose -f docker/docker-compose.yml run --rm node npm install
-docker compose -f docker/docker-compose.yml run --rm node npm run dev
+docker compose -f docker/docker-compose.yml run --rm node npm run build
 ```
 
 Open `http://localhost:8080`. Filament admin is at `/admin` with the user from `ADMIN_EMAIL` / `ADMIN_PASSWORD`.
@@ -93,3 +93,11 @@ If you hit permissions issues on `storage/` or `bootstrap/cache/`, run:
 ```bash
 docker compose -f docker/docker-compose.yml exec app chmod -R 775 storage bootstrap/cache
 ```
+
+For hot-reload during frontend work, run Vite in a separate terminal:
+
+```bash
+docker compose -f docker/docker-compose.yml run --rm --service-ports node npm run dev
+```
+
+Vite will be available on `http://localhost:5173`.

@@ -34,6 +34,7 @@ SKIP_MIGRATE=false
 RUN_TESTS_ON_START="${RUN_TESTS_ON_START:-true}"
 HALT_ON_TEST_FAIL="${HALT_ON_TEST_FAIL:-false}"
 SEED_PAGES_ON_START="${SEED_PAGES_ON_START:-true}"
+BUILD_ASSETS_ON_START="${BUILD_ASSETS_ON_START:-true}"
 
 for arg in "$@"; do
   case "$arg" in
@@ -101,7 +102,13 @@ fi
 
 if [ "$ASSETS" = "true" ]; then
   docker compose -f "$COMPOSE_FILE" run --rm node npm install
-  docker compose -f "$COMPOSE_FILE" run --rm node npm run dev
+  docker compose -f "$COMPOSE_FILE" run --rm node npm run build
+elif [ "$BUILD_ASSETS_ON_START" = "true" ]; then
+  if [ ! -f public/build/manifest.json ]; then
+    echo "Vite manifest missing; building assets..."
+    docker compose -f "$COMPOSE_FILE" run --rm node npm install
+    docker compose -f "$COMPOSE_FILE" run --rm node npm run build
+  fi
 fi
 
 echo "App should be running at http://localhost:8080"

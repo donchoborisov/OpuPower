@@ -1,33 +1,26 @@
-require('./bootstrap');
-
-
+import './bootstrap';
+import Alpine from 'alpinejs';
 
 // hamburger menu
-
 function toggleMenu() {
-    document.getElementById('menu-items').classList.toggle("hidden");
-    document.getElementById('menu-close').classList.toggle("hidden");
-    document.getElementById('menu-open').classList.toggle("hidden");
+    document.getElementById('menu-items')?.classList.toggle('hidden');
+    document.getElementById('menu-close')?.classList.toggle('hidden');
+    document.getElementById('menu-open')?.classList.toggle('hidden');
 }
 
+const menuOpen = document.getElementById('menu-open');
+const menuClose = document.getElementById('menu-close');
 
-document.getElementById('menu-open').addEventListener('click',() => {
-      toggleMenu();
-})
+if (menuOpen && menuClose) {
+    menuOpen.addEventListener('click', () => {
+        toggleMenu();
+    });
 
+    menuClose.addEventListener('click', () => {
+        toggleMenu();
+    });
+}
 
-document.getElementById('menu-close').addEventListener('click',() => {
-      toggleMenu();
-})
+window.Alpine = Alpine;
 
-
-
-
-
-//  end
-
-import Alpine from 'alpinejs'
- 
-window.Alpine = Alpine
- 
-Alpine.start()
+Alpine.start();

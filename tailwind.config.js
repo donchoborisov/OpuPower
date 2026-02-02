@@ -1,13 +1,10 @@
 module.exports = {
-  purge: [
+  content: [
      './storage/framework/views/*.php',
      './resources/**/*.blade.php',
-    //  './resources/**/*.vue',
-    //  './resources/**/*js',
-
-
+     './resources/**/*.js',
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily:{
@@ -24,8 +21,5 @@ module.exports = {
 
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }

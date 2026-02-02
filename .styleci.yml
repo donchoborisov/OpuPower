@@ -9,6 +9,5 @@ php:
       - server.php
 js:
   finder:
-    not-name:
-      - webpack.mix.js
+    not-name: []
 css: true
