@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use TCG\Voyager\Models\Page;
+
+use App\Models\Page;
 
 use Illuminate\Http\Request;
 
@@ -15,4 +16,3 @@ class PagesController extends Controller
 
     }
 }
-

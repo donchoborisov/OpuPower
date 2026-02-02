@@ -3,7 +3,7 @@
     <header class="container mx-auto max-w-7xl flex flex-wrap items-center p-6 justify-between">
   
         <div class="flex items-center text-sec hover:text-pri cursor-pointer transition">
-          <img class="w-10 mr-2" src="{{Voyager::image(setting('site.logo'))}} ">  
+          <img class="w-10 mr-2" src="{{ asset(config('site.logo')) }}">  
          <a href="{{ route('home')}}">   <span class="font-title text-pri text-3xl">OPU</span> <span class="font-title text-sec text-3xl">POWER</span> </a>
         </div>
         <div class="md:hidden block">

@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use TCG\Voyager\Models\Page;
+use App\Models\Page;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -38,11 +38,36 @@ class AppServiceProvider extends ServiceProvider
             return;
         }
 
-        View::share('networkmain', Page::where('title', 'Network Maintenance')->first());
-        View::share('itsupport', Page::where('title', 'IT Support Services')->first());
-        View::share('networkinst', Page::where('title', 'Network Installation')->first());
-        View::share('phone', Page::where('title', 'Telephone Systems')->first());
-        View::share('cloud', Page::where('title', 'Cloud Solutions')->first());
-        View::share('cctv', Page::where('title', 'CCTV')->first());
+        if (!app()->runningUnitTests()) {
+            $requiredSlugs = [
+                'network-maintenance',
+                'it-support-services',
+                'network-installation',
+                'telephone-systems',
+                'cloud-solutions',
+                'cctv',
+            ];
+
+            try {
+                $existing = Page::whereIn('slug', $requiredSlugs)->pluck('slug')->all();
+                $missing = array_diff($requiredSlugs, $existing);
+
+                if (!empty($missing)) {
+                    app(\Database\Seeders\AdminUserSeeder::class)->run();
+                    app(\Database\Seeders\PagesTableSeeder::class)->run();
+                }
+            } catch (\Throwable $e) {
+                // Avoid breaking the request if seeding fails.
+            }
+        }
+
+        View::composer('pages.home', function ($view) {
+            $view->with('networkmain', Page::where('slug', 'network-maintenance')->first());
+            $view->with('itsupport', Page::where('slug', 'it-support-services')->first());
+            $view->with('networkinst', Page::where('slug', 'network-installation')->first());
+            $view->with('phone', Page::where('slug', 'telephone-systems')->first());
+            $view->with('cloud', Page::where('slug', 'cloud-solutions')->first());
+            $view->with('cctv', Page::where('slug', 'cctv')->first());
+        });
     }
 }

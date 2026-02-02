@@ -16,77 +16,73 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 sm:gap-y-12 lg:gap-y-16 gap-x-8 lg:gap-x-12">
     
                     <!-- first row -->
-                    <div class="col-span-1 md:col-span-2 lg:col-span-3">
-                        <a href="{{ route('page.show',$networkmain->id)}}" class="border border-gray-100 block md:flex rounded-3xl overflow-hidden transition duration-300 hover:shadow-lg">
-                            <div class="md:w-1/2">
-                               <img src="{{Voyager::image($networkmain->image)}}" alt="" class="">
-                            </div>
-                            <div class="md:w-1/2 p-4 md:p-7 my-8 ">
-                                <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
-                                <h2 class="font-bold text-pri text-xl md:text-2xl font-title py-3 transition duration-200 hover:text-sec ">{{$networkmain->title}}</h2>
-                                <p class="text-gen pb-5">{{$networkmain->excerpt}}</p>
-                              
-                           
-                           
-                            </div>
-                        </a>
-                    </div>
+                    @if ($networkmain)
+                        <div class="col-span-1 md:col-span-2 lg:col-span-3">
+                            <a href="{{ route('page.show', $networkmain->id) }}" class="border border-gray-100 block md:flex rounded-3xl overflow-hidden transition duration-300 hover:shadow-lg">
+                                <div class="md:w-1/2">
+                                   <img src="{{ Storage::url($networkmain->image) }}" alt="" class="">
+                                </div>
+                                <div class="md:w-1/2 p-4 md:p-7 my-8 ">
+                                    <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
+                                    <h2 class="font-bold text-pri text-xl md:text-2xl font-title py-3 transition duration-200 hover:text-sec ">{{ $networkmain->title }}</h2>
+                                    <p class="text-gen pb-5">{{ $networkmain->excerpt }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                    <!-- end  -->
     
                     <!-- second row -->
-                      <div class="blog-card ">
-                           <a href="{{ route('page.show',$itsupport->id)}}">
-                               <img src="{{Voyager::image($itsupport->image)}}" alt="">
-                               <div class="px-4 pb-6">
-                                   <h2 class="post-title">{{$itsupport->title}}</h2>
-                                   <p class="text-gen pb-5">{{ Str::words($itsupport->excerpt, 20, ' ...') }}</p>
-                                    <div class="flex items-center">
-                               
-                                 <div class="pl-3">
-                                    <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
-                                 </div>
-                             </div>
-                                
-                                
-                                </div>
-                           </a>
-                      </div>
+                    @if ($itsupport)
+                        <div class="blog-card ">
+                             <a href="{{ route('page.show', $itsupport->id) }}">
+                                 <img src="{{ Storage::url($itsupport->image) }}" alt="">
+                                 <div class="px-4 pb-6">
+                                     <h2 class="post-title">{{ $itsupport->title }}</h2>
+                                     <p class="text-gen pb-5">{{ Str::words($itsupport->excerpt, 20, ' ...') }}</p>
+                                      <div class="flex items-center">
+                                   <div class="pl-3">
+                                      <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
+                                   </div>
+                               </div>
+                                  </div>
+                             </a>
+                        </div>
+                    @endif
     
-                      <div class="blog-card ">
-                        <a href="{{ route('page.show',$networkinst->id)}}">
-                            <img src="{{Voyager::image($networkinst->image)}}" alt="">
-                            <div class="px-4 pb-6">
-                                <h2 class="post-title">{{$networkinst->title}}</h2>
-                                <p class="text-gen pb-5">{{ Str::words($networkinst->excerpt, 20, ' ...') }}</p>
-                               
-                                <div class="flex items-center">
-                               
-                                    <div class="pl-3">
-                                        <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
-                                     </div>
-                             </div>
-                             
-                             </div>
-                        </a>
-                   </div>
+                    @if ($networkinst)
+                        <div class="blog-card ">
+                          <a href="{{ route('page.show', $networkinst->id) }}">
+                              <img src="{{ Storage::url($networkinst->image) }}" alt="">
+                              <div class="px-4 pb-6">
+                                  <h2 class="post-title">{{ $networkinst->title }}</h2>
+                                  <p class="text-gen pb-5">{{ Str::words($networkinst->excerpt, 20, ' ...') }}</p>
+                                  <div class="flex items-center">
+                                      <div class="pl-3">
+                                          <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
+                                       </div>
+                               </div>
+                               </div>
+                          </a>
+                     </div>
+                    @endif
     
-                   <div class="blog-card ">
-                    <a href="{{ route('page.show',$phone->id)}}">
-                        <img src="{{Voyager::image($phone->image)}}" alt="">
-                        <div class="px-4 pb-6">
-                            <h2 class="post-title">{{$phone->title}}</h2>
-                            <p class="text-gen pb-5">{{ Str::words($phone->excerpt, 20, ' ...') }}</p>
-                           
-                            <div class="flex items-center">
-                          
-                             <div class="pl-3">
-                                <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
-                             </div>
-                         </div>
-                         
-                         </div>
-                    </a>
-               </div>
+                @if ($phone)
+                    <div class="blog-card ">
+                      <a href="{{ route('page.show', $phone->id) }}">
+                          <img src="{{ Storage::url($phone->image) }}" alt="">
+                          <div class="px-4 pb-6">
+                              <h2 class="post-title">{{ $phone->title }}</h2>
+                              <p class="text-gen pb-5">{{ Str::words($phone->excerpt, 20, ' ...') }}</p>
+                              <div class="flex items-center">
+                               <div class="pl-3">
+                                  <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
+                               </div>
+                           </div>
+                           </div>
+                      </a>
+                 </div>
+                @endif
 
 
                
@@ -95,37 +91,34 @@
                
                     <!-- end row -->
                     <!-- third row -->
-                    <div class="blog-card col-span-1 lg:col-span-2 mb-10">
-                        <a href="{{ route('page.show',$cloud->id)}}">
-                            <img src="{{Voyager::image($cloud->image)}}" alt="" class="lg:h-72 w-full">
-                            <div class="px-4 pb-6">
-                                <h2 class="post-title">{{$cloud->title}}</h2>
-                                <p class="text-gen pb-5">{{ Str::words($cloud->excerpt, 20, ' ...') }}</p>
-                               
-                           
-                             
-                             </div>
-                             
-                        </a>
-                   </div>
-    
-                   <div class="blog-card mb-10 ">
-                    <a href="{{ route('page.show',$cctv->id)}}">
-                        <img src="{{Voyager::image($cctv->image)}}" alt="">
-                        <div class="px-4 pb-6">
-                            <h2 class="post-title">{{$cctv->title}}</h2>
-                            <p class="text-gen pb-5">{{ Str::words($cctv->excerpt, 20, ' ...') }}</p>
-                           
-                            <div class="flex items-center">
-                                <div class="pl-3">
-                                    <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
+                    @if ($cloud)
+                        <div class="blog-card col-span-1 lg:col-span-2 mb-10">
+                            <a href="{{ route('page.show', $cloud->id) }}">
+                                <img src="{{ Storage::url($cloud->image) }}" alt="" class="lg:h-72 w-full">
+                                <div class="px-4 pb-6">
+                                    <h2 class="post-title">{{ $cloud->title }}</h2>
+                                    <p class="text-gen pb-5">{{ Str::words($cloud->excerpt, 20, ' ...') }}</p>
                                  </div>
-                           
-                         </div>
-                         
-                         </div>
-                    </a>
-               </div>
+                            </a>
+                       </div>
+                    @endif
+    
+                    @if ($cctv)
+                        <div class="blog-card mb-10 ">
+                          <a href="{{ route('page.show', $cctv->id) }}">
+                              <img src="{{ Storage::url($cctv->image) }}" alt="">
+                              <div class="px-4 pb-6">
+                                  <h2 class="post-title">{{ $cctv->title }}</h2>
+                                  <p class="text-gen pb-5">{{ Str::words($cctv->excerpt, 20, ' ...') }}</p>
+                                  <div class="flex items-center">
+                                      <div class="pl-3">
+                                          <p class="px-3 py-1 bg-our-bg rounded text-sec text-xs inline animate-pulse ">See more...</p>
+                                       </div>
+                                 </div>
+                                 </div>
+                          </a>
+                     </div>
+                    @endif
     
                     
                     <!-- end row -->

@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-bullseye
+FROM php:8.4-fpm-bookworm
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -9,6 +9,7 @@ RUN apt-get update \
         libfreetype6-dev \
         libzip-dev \
         libonig-dev \
+        libicu-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
         pdo_mysql \
@@ -16,6 +17,7 @@ RUN apt-get update \
         exif \
         pcntl \
         bcmath \
+        intl \
         gd \
         zip \
     && rm -rf /var/lib/apt/lists/*
