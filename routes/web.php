@@ -1,6 +1,6 @@
 <?php
 
-use TCG\Voyager\Voyager;
+use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Page;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
