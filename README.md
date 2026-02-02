@@ -54,6 +54,18 @@ Skip migrations if you already ran them:
 ./docker/dev-up.sh --skip-migrate
 ```
 
+Run tests on startup (default: true), and optionally halt on failure:
+
+```bash
+RUN_TESTS_ON_START=true HALT_ON_TEST_FAIL=false ./docker/dev-up.sh
+```
+
+Run the core test suite manually:
+
+```bash
+docker compose -f docker/docker-compose.yml exec app php artisan test --group=core
+```
+
 4) Install PHP deps, generate key, migrate & seed:
 
 ```bash

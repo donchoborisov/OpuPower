@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (app()->runningInConsole()) {
+        if (app()->runningInConsole() && !app()->runningUnitTests()) {
             return;
         }
 

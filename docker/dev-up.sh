@@ -31,6 +31,8 @@ set_env MAIL_PORT "1025"
 
 ASSETS=false
 SKIP_MIGRATE=false
+RUN_TESTS_ON_START="${RUN_TESTS_ON_START:-true}"
+HALT_ON_TEST_FAIL="${HALT_ON_TEST_FAIL:-false}"
 
 for arg in "$@"; do
   case "$arg" in
@@ -78,6 +80,18 @@ set +e
 docker compose -f "$COMPOSE_FILE" exec -T app php artisan storage:link
 
 set -e
+
+if [ "$RUN_TESTS_ON_START" = "true" ]; then
+  echo "Running core tests..."
+  if ! docker compose -f "$COMPOSE_FILE" exec -T app php artisan test --group=core; then
+    if [ "$HALT_ON_TEST_FAIL" = "true" ]; then
+      echo "Tests failed; stopping containers."
+      docker compose -f "$COMPOSE_FILE" down
+      exit 1
+    fi
+    echo "Tests failed; continuing because HALT_ON_TEST_FAIL=false"
+  fi
+fi
 
 if [ "$ASSETS" = "true" ]; then
   docker compose -f "$COMPOSE_FILE" run --rm node npm install
