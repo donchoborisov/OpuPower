@@ -28,6 +28,10 @@ DB_USERNAME=laravel
 DB_PASSWORD=secret
 MAIL_HOST=mailhog
 MAIL_PORT=1025
+SITE_LOGO=img/365.png
+ADMIN_NAME=Admin
+ADMIN_EMAIL=admin@admin.com
+ADMIN_PASSWORD=password
 ```
 
 3) Build and start containers:
@@ -82,7 +86,7 @@ docker compose -f docker/docker-compose.yml run --rm node npm install
 docker compose -f docker/docker-compose.yml run --rm node npm run dev
 ```
 
-Open `http://localhost:8080`. Voyager admin is at `/fuzzy` with seed user `admin@admin.com` / `password`.
+Open `http://localhost:8080`. Filament admin is at `/admin` with the user from `ADMIN_EMAIL` / `ADMIN_PASSWORD`.
 
 If you hit permissions issues on `storage/` or `bootstrap/cache/`, run:
 

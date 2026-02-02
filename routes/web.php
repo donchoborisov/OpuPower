@@ -1,7 +1,5 @@
 <?php
 
-use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Models\Page;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContactController;
@@ -43,6 +41,4 @@ Route::post('contact',[ContactController::class,'contactPost'])->name('contact.s
 Route::get('page/{id}',[PagesController::class,'show'])->name('page.show');
 
 
-Route::group(['prefix' => 'fuzzy'], function () {
-    Voyager::routes();
-});
+require __DIR__.'/auth.php';

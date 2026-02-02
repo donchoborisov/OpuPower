@@ -33,6 +33,7 @@ ASSETS=false
 SKIP_MIGRATE=false
 RUN_TESTS_ON_START="${RUN_TESTS_ON_START:-true}"
 HALT_ON_TEST_FAIL="${HALT_ON_TEST_FAIL:-false}"
+SEED_PAGES_ON_START="${SEED_PAGES_ON_START:-true}"
 
 for arg in "$@"; do
   case "$arg" in
@@ -45,6 +46,7 @@ for arg in "$@"; do
   esac
 done
 
+docker compose -f "$COMPOSE_FILE" down --remove-orphans
 docker compose -f "$COMPOSE_FILE" up -d --build
 
 echo "Waiting for database to be ready..."
@@ -72,6 +74,10 @@ fi
 
 if [ "$SKIP_MIGRATE" != "true" ]; then
   docker compose -f "$COMPOSE_FILE" exec -T app php artisan migrate --seed --force
+fi
+
+if [ "$SEED_PAGES_ON_START" = "true" ]; then
+  docker compose -f "$COMPOSE_FILE" exec -T app php artisan db:seed --class=PagesTableSeeder --force
 fi
 
 # Ignore error if storage link already exists

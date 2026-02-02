@@ -17,11 +17,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call([
-            VoyagerDatabaseSeeder::class,
-            VoyagerDummyDatabaseSeeder::class,
-            ContactTableSeeder::class,
+            AdminUserSeeder::class,
             PagesTableSeeder::class,
-
+            ContactTableSeeder::class,
         ]);
     }
 }
