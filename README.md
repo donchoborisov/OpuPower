@@ -32,6 +32,7 @@ SITE_LOGO=img/365.png
 ADMIN_NAME=Admin
 ADMIN_EMAIL=admin@admin.com
 ADMIN_PASSWORD=password
+BUILD_ASSETS_ON_START=true
 ```
 
 3) Build and start containers:
@@ -64,6 +65,18 @@ Run tests on startup (default: true), and optionally halt on failure:
 RUN_TESTS_ON_START=true HALT_ON_TEST_FAIL=false ./docker/dev-up.sh
 ```
 
+Auto-build assets on startup if the Vite manifest is missing:
+
+```bash
+BUILD_ASSETS_ON_START=true ./docker/dev-up.sh
+```
+
+Disable the auto-build (useful if you’re running Vite dev server):
+
+```bash
+BUILD_ASSETS_ON_START=false ./docker/dev-up.sh
+```
+
 Run the core test suite manually:
 
 ```bash
@@ -83,9 +96,10 @@ docker compose -f docker/docker-compose.yml exec app php artisan storage:link
 
 ```bash
 docker compose -f docker/docker-compose.yml run --rm node npm install
-docker compose -f docker/docker-compose.yml run --rm node npm run dev
+docker compose -f docker/docker-compose.yml run --rm node npm run build
 ```
 
+Open `http://localhost:8080`. Filament admin is at `/admin` with the user from `ADMIN_EMAIL` / `ADMIN_PASSWORD`.
 Open `http://localhost:8080`. Filament admin is at `/admin` with the user from `ADMIN_EMAIL` / `ADMIN_PASSWORD`.
 
 If you hit permissions issues on `storage/` or `bootstrap/cache/`, run:
@@ -93,3 +107,11 @@ If you hit permissions issues on `storage/` or `bootstrap/cache/`, run:
 ```bash
 docker compose -f docker/docker-compose.yml exec app chmod -R 775 storage bootstrap/cache
 ```
+
+For hot-reload during frontend work, run Vite in a separate terminal:
+
+```bash
+docker compose -f docker/docker-compose.yml run --rm --service-ports node npm run dev
+```
+
+Vite will be available on `http://localhost:5173`.
