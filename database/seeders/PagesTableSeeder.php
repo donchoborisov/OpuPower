@@ -37,7 +37,7 @@ OPU POWER bring the Companies and Customers together.',
 <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 sm:gap-y-12 lg:gap-y-16 gap-x-8 lg:gap-x-12"><!-- first row -->
 <div class="col-span-1 md:col-span-2 lg:col-span-3">
 <div class=" block md:flex rounded-3xl overflow-hidden transition duration-300 ">
-<div class="md:w-1/2"><img class="" src="http://127.0.0.1:8000/storage/pages/contact.jpg" alt="" width="400px" /></div>
+<div class="md:w-1/2"><img class="" src="/storage/pages/contact.jpg" alt="" width="400px" /></div>
 <div class="md:w-1/2 p-4 md:p-7 my-8 ">
 <div class=" mt-10  px-7 py-7 text-center rounded text-sec "><a href="tel:00447912040903"> <button class="px-12 shadow py-2 md:mr-10 rounded-3xl bg-sec text-white hover:bg-blue-800 focus:outline-none mt-4 sm:mt-0 sm:-ml-12" type="submit"> Call us </button></a></div>
 <div class=" mt-3  px-7 py-7 text-center rounded text-sec "><a href="mailto:opupower@yahoo.com"> <button class="px-12 shadow py-2 md:mr-10 rounded-3xl bg-sec text-white hover:bg-blue-800 focus:outline-none mt-4 sm:mt-0 sm:-ml-12" type="submit"> Send E-mail </button></a></div>
@@ -159,7 +159,7 @@ OPU POWER bring the Companies and Customers together.',
 <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 sm:gap-y-12 lg:gap-y-16 gap-x-8 lg:gap-x-12"><!-- first row -->
 <div class="col-span-1 md:col-span-2 lg:col-span-3">
 <div class=" block md:flex rounded-3xl overflow-hidden transition duration-300 ">
-<div class="md:w-1/2 sm:mt-8 "><img class="" src="http://127.0.0.1:8000/storage/pages/main.jpg" alt="" width="500px" /></div>
+<div class="md:w-1/2 sm:mt-8 "><img class="" src="/storage/pages/main.jpg" alt="" width="500px" /></div>
 <div class="md:w-1/2 p-4 md:p-7 my-8 ">
 <div class=" mt-10  px-7 py-7 text-center rounded text-sec "><a href="tel:00447912040903"> <button class="px-12 shadow py-2 md:mr-10 rounded-3xl bg-sec text-white hover:bg-blue-800 focus:outline-none mt-4 sm:mt-0 sm:-ml-12" type="submit"> Call us </button></a></div>
 <div class=" mt-3  px-7 py-7 text-center rounded text-sec "><a href="mailto:opupower@yahoo.com"> <button class="px-12 shadow py-2 md:mr-10 rounded-3xl bg-sec text-white hover:bg-blue-800 focus:outline-none mt-4 sm:mt-0 sm:-ml-12" type="submit"> Send E-mail </button></a></div>
@@ -195,16 +195,16 @@ OPU POWER bring the Companies and Customers together.',
 <h5 class="font-title text-gen opacity-100"><span class="text-sec text-2xl">OUR CLOUD SOLUTIONS</span> <span class="text-sec text-2xl">FOR BUSINESSES</span><br /><br />Microsoft Office 365 is the leading Software-as-a-Service cloud solution, and for good reason. It offers a comprehensive suite of productivity and communication apps to help your business streamline operations and improve collaboration whether you work remotely or in the office.We provide a holistic MS Office 365 cloud service covering everything from procurement, migration and support service. We&rsquo;ll work with you to deliver the flexible and scalable solution your business needs while working hard to keep subscriptions and costs to a minimum.If you need to procure any other SaaS services like Azure or AWS , we can advise and assist procurement and deployment, ensuring integration is configured (where required) all whilst acting as the single trusted point of contact for each subscription &ndash; helping you to maximise the benefit of the services procured.</h5>
 </div>
 <div class=" mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 sm:gap-y-12 lg:gap-y-16 gap-x-8 lg:gap-x-12 text-center px-10 rounded-2xl py-10  sm:py-14">
-<div class=""><img class="w-21 h-13" src="http://127.0.0.1:8000/storage/pages/aws.png" alt="" /></div>
-<div class=""><img class="w-25 h-20" src="http://127.0.0.1:8000/storage/pages/365.png" alt="" /></div>
-<div class=""><img class="w-25 h-15" src="http://127.0.0.1:8000/storage/pages/azure.png" alt="" /></div>
+<div class=""><img class="w-21 h-13" src="/storage/pages/aws.png" alt="" /></div>
+<div class=""><img class="w-25 h-20" src="/storage/pages/365.png" alt="" /></div>
+<div class=""><img class="w-25 h-15" src="/storage/pages/azure.png" alt="" /></div>
 </div>
 <hr />
 <section class="main">
 <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 sm:gap-y-12 lg:gap-y-16 gap-x-8 lg:gap-x-12"><!-- first row -->
 <div class="col-span-1 md:col-span-2 lg:col-span-3">
 <div class=" block md:flex rounded-3xl overflow-hidden transition duration-300 ">
-<div class="md:w-1/2 sm:mt-8 "><img class="" src="http://127.0.0.1:8000/storage/pages/data.jpg" alt="" width="500px" /></div>
+<div class="md:w-1/2 sm:mt-8 "><img class="" src="/storage/pages/data.jpg" alt="" width="500px" /></div>
 <div class="md:w-1/2 p-4 md:p-7 my-8 ">
 <div class=" mt-10  px-7 py-7 text-center rounded text-sec "><a href="tel:00447912040903"> <button class="px-12 shadow py-2 md:mr-10 rounded-3xl bg-sec text-white hover:bg-blue-800 focus:outline-none mt-4 sm:mt-0 sm:-ml-12" type="submit"> Call us </button></a></div>
 <div class=" mt-3  px-7 py-7 text-center rounded text-sec "><a href="mailto:opupower@yahoo.com"> <button class="px-12 shadow py-2 md:mr-10 rounded-3xl bg-sec text-white hover:bg-blue-800 focus:outline-none mt-4 sm:mt-0 sm:-ml-12" type="submit"> Send E-mail </button></a></div>
@@ -237,7 +237,7 @@ OPU POWER bring the Companies and Customers together.',
 <!-- first row -->
 <div class="col-span-1 md:col-span-2 lg:col-span-3">
 <div class=" block md:flex rounded-3xl overflow-hidden ">
-<div class="md:w-1/2"><img class="" src="http://127.0.0.1:8000/storage/pages/voip.jpg" alt="" /></div>
+<div class="md:w-1/2"><img class="" src="/storage/pages/voip.jpg" alt="" /></div>
 <div class="md:w-1/2 p-4 md:p-7">
 <h2 class="font-bold text-center text-xl md:text-2xl font-title mt-12 text-sec ">LANDLINE BECOMING A SMART PHONE SYSTEM</h2>
 <h5 class="font-title text-gen opacity-100">VOIP phone systems require extra care to network design and installation in order to receive clear-noise free audio output from VOIP phones. <span class="text-sec text-3xl"><br />OPU</span> <span class="text-pri text-3xl">POWER</span> have trained professionals who can offer that extra care. We set up telephone systems to get the most out of your landline. Whether for a business or a home owner, we will install a system that will answer calls in the order that you want, redirect them to you wherever you are (worldwide) or automatically process calls to the correct person.</h5>
@@ -280,7 +280,7 @@ OPU POWER bring the Companies and Customers together.',
 <hr /><!-- first row -->
 <div class="col-span-1 md:col-span-2 lg:col-span-3">
 <div class=" block md:flex rounded-3xl overflow-hidden">
-<div class="md:w-1/2 mt-9"><img class="" src="http://127.0.0.1:8000/storage/pages/cctv2.jpg" alt="" /></div>
+<div class="md:w-1/2 mt-9"><img class="" src="/storage/pages/cctv2.jpg" alt="" /></div>
 <div class="md:w-1/2 p-4 md:p-7">
 <h2 class="font-bold  text-xl md:text-2xl font-title mt-12 text-sec ">CCTV Systems Installation for Home &amp; Business</h2>
 <h5 class="font-title text-gen opacity-100">CCTV systems specialist offering CCTV installation for homes and businesses in and around London. We provide CCTV packages including cameras, digital video recorder, installation and CCTV maintenance services at competitive prices. Our offers are designed to provide maximum security at affordable prices for home or business.</h5>

@@ -3,6 +3,9 @@
 
 /public/hot
 /public/build
+/public/css/filament
+/public/js/filament
+/public/fonts/filament
 
 /storage/*.key
 /vendor
@@ -17,3 +20,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# macOS
+.DS_Store
