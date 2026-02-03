@@ -11,6 +11,11 @@ if [ ! -f .env ]; then
   echo "Created .env from .env.example"
 fi
 
+# Load env values for this script
+set -a
+. ./.env
+set +a
+
 set_env() {
   local key="$1"
   local value="$2"
@@ -35,6 +40,7 @@ RUN_TESTS_ON_START="${RUN_TESTS_ON_START:-true}"
 HALT_ON_TEST_FAIL="${HALT_ON_TEST_FAIL:-false}"
 SEED_PAGES_ON_START="${SEED_PAGES_ON_START:-true}"
 BUILD_ASSETS_ON_START="${BUILD_ASSETS_ON_START:-true}"
+LIVE_COMPARE_ENABLED="${LIVE_COMPARE_ENABLED:-false}"
 
 for arg in "$@"; do
   case "$arg" in
@@ -93,6 +99,12 @@ docker compose -f "$COMPOSE_FILE" exec -T app php artisan storage:link
 
 set -e
 
+docker compose -f "$COMPOSE_FILE" exec -T app php artisan view:clear
+
+if [ ! -d public/filament ]; then
+  docker compose -f "$COMPOSE_FILE" exec -T app php artisan filament:assets
+fi
+
 if [ "$RUN_TESTS_ON_START" = "true" ]; then
   echo "Running core tests..."
   if ! docker compose -f "$COMPOSE_FILE" exec -T app php artisan test --group=core; then
@@ -102,6 +114,22 @@ if [ "$RUN_TESTS_ON_START" = "true" ]; then
       exit 1
     fi
     echo "Tests failed; continuing because HALT_ON_TEST_FAIL=false"
+  fi
+fi
+
+if [ "$LIVE_COMPARE_ENABLED" = "true" ]; then
+  LOCAL_COMPARE_BASE_URL_FOR_TESTS="${LOCAL_COMPARE_BASE_URL:-http://localhost:8080}"
+  if [[ "$LOCAL_COMPARE_BASE_URL_FOR_TESTS" == http://localhost* || "$LOCAL_COMPARE_BASE_URL_FOR_TESTS" == http://127.0.0.1* ]]; then
+    LOCAL_COMPARE_BASE_URL_FOR_TESTS="http://nginx"
+  fi
+  echo "Running live comparison tests..."
+  if ! docker compose -f "$COMPOSE_FILE" exec -T -e LOCAL_COMPARE_BASE_URL="$LOCAL_COMPARE_BASE_URL_FOR_TESTS" app php artisan test --group=live; then
+    if [ "$HALT_ON_TEST_FAIL" = "true" ]; then
+      echo "Live comparison tests failed; stopping containers."
+      docker compose -f "$COMPOSE_FILE" down
+      exit 1
+    fi
+    echo "Live comparison tests failed; continuing because HALT_ON_TEST_FAIL=false"
   fi
 fi
 
